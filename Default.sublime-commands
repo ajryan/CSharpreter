@@ -1,0 +1,8 @@
+[
+    {   "caption": "CSharpreter: Interpret",
+        "command": "csharpreter_interpret"
+    },
+    {   "caption": "CSharpreter: Cleanup",
+        "command": "csharpreter_cleanup"
+    }
+]

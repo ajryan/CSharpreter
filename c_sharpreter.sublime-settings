@@ -1,0 +1,13 @@
+{
+	"msbuild_path": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
+	"default_usings":
+	[
+		"System", "System.Collections.Generic", "System.Linq"
+	],
+	"main_end":
+	[
+		"Console.WriteLine();",
+		"Console.WriteLine(\"Press any key to exit...\");",
+		"Console.ReadKey();"
+	]
+}

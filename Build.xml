@@ -1,0 +1,74 @@
+<!--
+  thanks to cheeso: http://blogs.msdn.com/b/dotnetinterop/archive/2008/04/08/msbuild-script-for-compiling-all-cs-files-into-a-single-assembly-dll-or-exe.aspx
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="CompileAll"
+         ToolsVersion="3.5">
+
+   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+   <PropertyGroup>
+     <AppName>CSharpreter</AppName>
+   </PropertyGroup>
+
+   <PropertyGroup Condition="'$(Configuration)'==''">
+     <Configuration>Debug</Configuration>
+   </PropertyGroup>
+
+   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+     <Optimize>false</Optimize>
+     <DebugSymbols>true</DebugSymbols>
+     <OutputPath>.\</OutputPath>
+     <OutDir>.\</OutDir>
+     <IntermediateOutputPath>.\</IntermediateOutputPath>
+   </PropertyGroup>
+
+
+   <!-- Specify the inputs by type and file name -->
+   <ItemGroup>
+     <CSFile Include="*.cs"/>
+   </ItemGroup>
+
+
+   <!-- specify reference assemblies for all builds in this project -->
+   <ItemGroup>
+     <Reference Include="mscorlib" />
+     <Reference Include="System" />
+     <Reference Include="System.Core" />
+     <Reference Include="System.Data" />
+     <Reference Include="System.Data.Linq" />
+     <Reference Include="System.ServiceModel" />
+     <Reference Include="System.ServiceModel.Web" />
+     <Reference Include="System.Runtime.Serialization" />
+   </ItemGroup>
+
+
+   <Target Name="CompileAll"
+           DependsOnTargets="ResolveAssemblyReferences">
+
+     <Message Text="Reference = @(Reference)" />
+     <Message Text="ReferencePath = @(ReferencePath)" />
+
+
+     <Message Text="MS Build Tools path:  $(MSBuildToolsPath)" />
+
+     <!-- Run the Visual C# compiler on all the .cs files. -->
+     <CSC
+       Sources="@(CSFile)"
+       References="@(ReferencePath)"
+       OutputAssembly="$(OutputPath)\$(AppName).exe"
+       EmitDebugInformation="$(DebugSymbols)"
+       TargetType="exe"
+       Toolpath="$(MSBuildToolsPath)"
+       Nologo="true" />
+   </Target>
+
+   <!-- redefine the Clean target, from the Microsoft.csharp.targets file.  (Last definition wins) -->
+   <Target Name="Clean">
+     <Delete Files="$(OutputPath)\$(AppName).exe"/>
+     <Delete Files="$(OutputPath)\$(AppName).pdb"/>
+     <Delete Files="%(CSFile.identity)~"/>
+     <Delete Files="Build.xml~"/>
+   </Target>
+
+ </Project>
