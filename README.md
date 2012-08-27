@@ -12,7 +12,7 @@ In the CSharpreter package folder, edit c_sharpreter.sublime-settings file to mo
 * default_usings: List of namespaces to inject at the top of the source file.
 * main_end: List of statements to inject at the end of the Main method.
 
-``` json CSharpreter settings
+```json
 {
 	"msbuild_path": "C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe",
 	"default_usings":
