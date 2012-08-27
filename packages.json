@@ -1,0 +1,20 @@
+{
+	"schema_version": "1.2",
+	"packages": [
+		{
+			"name": "CSharpreter",
+			"description": "Build and execute fragments of C# code",
+			"author": "ajryan",
+			"homepage": "https://github.com/ajryan/CSharpreter",
+			"last_modified": "2012-08-26 22:00:00",
+			"platforms": {
+				"windows": [
+					{
+						"version": "1.0.0",
+						"url": "https://nodeload.github.com/ajryan/CSharpreter/zipball/1.0.0"
+					}
+				]
+			}
+		}
+	]
+}
