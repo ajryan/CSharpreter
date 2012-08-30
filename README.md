@@ -55,6 +55,12 @@ In the CSharpreter package folder, edit c_sharpreter.sublime-settings file to mo
 
 ## Installation
 
+### Easy
+
+Install the (awesome!) [Package Control](http://wbond.net/sublime_packages/package_control) package, press Ctrl+Shift+P, choose Package Control: Install Package, and then type 'CSharpreter'.
+
+### Manual
+
 Clone this repository into your Sublime Text packages folder.
 
 **Windows 7 / Vista and above**
