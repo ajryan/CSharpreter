@@ -10,8 +10,8 @@
 			"platforms": {
 				"windows": [
 					{
-						"version": "1.0.0",
-						"url": "https://nodeload.github.com/ajryan/CSharpreter/zipball/1.0.0"
+						"version": "1.0.2",
+						"url": "https://nodeload.github.com/ajryan/CSharpreter/zipball/1.0.2"
 					}
 				]
 			}
