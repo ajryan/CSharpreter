@@ -1,6 +1,8 @@
 import sublime, sublime_plugin
 import os, datetime, shutil, subprocess
 
+PLUGIN_DIRECTORY = os.getcwd()
+
 class CsharpreterCommand(object):
 	def get_temp_root(self):
 		return os.path.join(os.environ['TEMP'], "CSharpreter")
@@ -31,7 +33,10 @@ class CsharpreterInterpretCommand(CsharpreterCommand, sublime_plugin.TextCommand
 
 		tempFolder = self.get_temp_folder()
 		self.write_temp_cs(text, tempFolder)
-		shutil.copy("Build.xml", tempFolder)
+
+		buildXmlPath = os.path.join(PLUGIN_DIRECTORY,"Build.xml")
+		print buildXmlPath
+		shutil.copy(buildXmlPath, tempFolder)
 		buildOk = self.build(tempFolder)
 		if buildOk:
 			self.execute(tempFolder)
